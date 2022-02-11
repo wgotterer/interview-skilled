@@ -4,6 +4,10 @@ import * as Font from "expo-font"
 import AppLoading from 'expo-app-loading';
 import React, {useState} from 'react';
 import MealsNavigator from './navigation/MealsNavigator';
+import {enableScreens} from "reacat-native-screens"
+
+// behind the scenes this unlocks the screens and makes the performace better and more efficient
+enableScreens()
 
 const fetchFonts = () => {
   Font.loadAsync({
