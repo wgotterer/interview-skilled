@@ -4,15 +4,15 @@ import * as Font from "expo-font"
 import AppLoading from 'expo-app-loading';
 import React, {useState} from 'react';
 import MealsNavigator from './navigation/MealsNavigator';
-import {enableScreens} from "reacat-native-screens"
+import {enableScreens} from "react-native-screens"
 
 // behind the scenes this unlocks the screens and makes the performace better and more efficient
 enableScreens()
 
 const fetchFonts = () => {
   Font.loadAsync({
-    "open-sans" : require('./assets/fonts/OpenSans-Regular.ttf'),
-    "open-sans" : require('./assets/fonts/OpenSans-Bold.ttf')
+    "open-sans": require('./assets/fonts/OpenSans-Regular.ttf'),
+    "open-sans-bold": require('./assets/fonts/OpenSans-Bold.ttf')
 
   })
 }
