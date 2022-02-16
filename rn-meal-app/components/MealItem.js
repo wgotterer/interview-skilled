@@ -52,9 +52,10 @@ const styles = StyleSheet.create({
         fontSize: 22,
         color: "white",
         // rgba has built in transparency so even if picture is white we can read the title
-        backgroundColor: "rgba(0,0,0,0.7)",
+        backgroundColor: "rgba(0,0,0,0.5)",
         // background color box does not sit on edges of text
-        paddingVertical: 5
+        paddingVertical: 5,
+        paddingHorizontal: 15
     }
 })
 
