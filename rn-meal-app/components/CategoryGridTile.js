@@ -7,16 +7,20 @@ import { ScreenContainer } from 'react-native-screens'
 const CategoryGridTile = props => {
   let TouchableCmp = TouchableOpacity;
 
-  if(Platform.OS === "android" && Platform.version >= 21){
+  // checks to see if it's android and version is compatible to add ripple effect
+  if(Platform.OS === 'android' && Platform.Version >= 21){
     TouchableCmp = TouchableNativeFeedback
   }
+
     return(
-        <TouchableCmp style={styles.gridItem} onPress={props.onSelect} >
+      <View style={styles.gridItem}>
+        <TouchableCmp  style={{flex: 1}}  onPress={props.onSelect} >
         <View style={{...styles.container, ...{backgroundColor: props.color}}}>
           {/*numberOfLines used so that if anything is longer it goes to a new lone  */}
           <Text style={styles.title} numberOfLines={2} >{props.title} </Text>
         </View>
       </TouchableCmp>
+      </View>
     )
 }
 
@@ -26,6 +30,8 @@ const styles = StyleSheet.create({
         flex: 1,
         margin: 15,
         height: 150,
+        borderRadius: 10,
+        overflow: "hidden"
 
     },
     container: {
