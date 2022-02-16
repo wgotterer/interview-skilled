@@ -11,7 +11,14 @@ const CategoryMealsScreen = props => {
             <MealItem 
             title = {itemData.item.title}
             image = {itemData.item.imageUrl}
-            onSelectMeal={() => {}}
+            onSelectMeal={() => {
+                props.navigation.navigate({
+            routeName: 'MealDetail',
+            params: {
+              mealId: itemData.item.id
+              }
+            })
+         }}
             duration={itemData.item.duration}
             complexity={itemData.item.complexity}
             affordability={itemData.item.affordability}
@@ -45,7 +52,7 @@ const CategoryMealsScreen = props => {
 
 // have it as a function that depends on changing data/ dynamic.
 // By default navigation gives us the title as the title as back text if there is space
-// when calling the navigationOptions method on the function we get a props and 
+// when calling the navigationOptions method on the function we get props and 
 // in the prop we can access navigation object that has the getParam method
 CategoryMealsScreen.navigationOptions = (navigationData) => {
     

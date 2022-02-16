@@ -9,9 +9,12 @@ const MealItem = props => {
                 <View>
                     <View style={{...styles.mealRow, ...styles.mealHeader}}>
                         <ImageBackground source={{uri: props.image}} style={styles.bgImage}>
-                        <Text style={styles.title}>
-                            {props.title}
-                        </Text>
+                        <View style={styles.titleContainer}>
+                                {/* numberofLines will add ... if it's too long */}
+                            <Text style={styles.title} numberOfLines={1}>
+                                {props.title}
+                            </Text>
+                        </View>
                         </ImageBackground>
                     </View>
                     <View style={{...styles.mealRow, ...styles.mealDetail}}>
@@ -29,33 +32,43 @@ const styles = StyleSheet.create({
     mealItem: {
         height: 200,
         width: "100%",
-        backgroundColor: "#ccc",
+        backgroundColor: "#f5f5f5",
+        borderRadius: 10,
+        overflow: "hidden"
     },
     bgImage:{
         width: "100%",
-        height: "100%"
+        height: "100%",
+        // image acts as a flexbox which allows us to use flex end. 
+        justifyContent: "flex-end"
     },
     mealRow: {
         flexDirection: "row"
     },
     mealHeader:{
-        height: "90%"
+        height: "85%"
     },
     mealDetail:{
         paddingHorizontal: 10,
         // use spacebetween to evenly distribute items on horizonatal axis
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        alignItems: "center",
+        height: "15%"
 
     },
-    title:{
-        fontFamily: "open-sand-bold",
-        fontSize: 22,
-        color: "white",
+    titleContainer: {
         // rgba has built in transparency so even if picture is white we can read the title
         backgroundColor: "rgba(0,0,0,0.5)",
         // background color box does not sit on edges of text
         paddingVertical: 5,
-        paddingHorizontal: 15
+        paddingHorizontal: 15,
+    },
+    title:{
+        fontFamily: "open-sand-bold",
+        fontSize: 20,
+        color: "white",
+        textAlign: "center",
+
     }
 })
 
