@@ -43,11 +43,11 @@ const MealsNavigator = createStackNavigator({
     }
 });
 
-// const MealsFavTabNavigator = createBottomTabNavigator({
-//   // our first tab is rendering the navigation stack of screens
-//   Meals: MealsNavigator,
-//   Favorites: FavoritesScreen
-// })
+const MealsFavTabNavigator = createBottomTabNavigator({
+  // our first tab is rendering the navigation stack of screens
+  Meals: MealsNavigator,
+  Favorites: FavoritesScreen
+})
 
 // we can use MealsFavTabNavgator because or MealsNavigator we use in the header is nested inside
-export default createAppContainer(MealsNavigator);
+export default createAppContainer(MealsFavTabNavigator);
