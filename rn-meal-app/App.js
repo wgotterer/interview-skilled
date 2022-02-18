@@ -9,8 +9,8 @@ import {enableScreens} from "react-native-screens"
 // behind the scenes this unlocks the screens and makes the performace better and more efficient
 enableScreens()
 
-const fetchFonts = () => {
-  Font.loadAsync({
+const fetchFonts = async () => {
+  await Font.loadAsync({
     "open-sans": require('./assets/fonts/OpenSans-Regular.ttf'),
     "open-sans-bold": require('./assets/fonts/OpenSans-Bold.ttf')
 

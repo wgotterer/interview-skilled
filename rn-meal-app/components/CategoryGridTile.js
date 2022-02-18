@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     },
     title: {
       fontFamily: "open-sans-bold",
-      fontSize: 22,
+      fontSize: 20,
       // android was putting it on the left so used texAlign: right
       textAlign: "right"
     }

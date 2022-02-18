@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         fontFamily: "open-sand-bold",
         fontSize: 20,
         color: "white",
-        textAlign: "center",
+        
 
     }
 })
