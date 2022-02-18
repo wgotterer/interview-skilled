@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
     },
     title:{
-        fontFamily: "open-sand-bold",
+        fontFamily: "open-sans-bold",
         fontSize: 20,
         color: "white",
         

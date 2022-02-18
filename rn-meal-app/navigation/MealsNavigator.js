@@ -1,10 +1,13 @@
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator} from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
+import FavoritesScreen from '../screens/FavoritesScreen';
 import { Platform } from 'react-native';
 import Colors from '../constants/Colors';
+
 
 // first argument is your screen object and the second argument configures the navigator
 const MealsNavigator = createStackNavigator({
@@ -40,4 +43,11 @@ const MealsNavigator = createStackNavigator({
     }
 });
 
+// const MealsFavTabNavigator = createBottomTabNavigator({
+//   // our first tab is rendering the navigation stack of screens
+//   Meals: MealsNavigator,
+//   Favorites: FavoritesScreen
+// })
+
+// we can use MealsFavTabNavgator because or MealsNavigator we use in the header is nested inside
 export default createAppContainer(MealsNavigator);
