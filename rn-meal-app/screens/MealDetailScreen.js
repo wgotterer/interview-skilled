@@ -30,7 +30,7 @@ MealDetailScreen.navigationOptions = (navigationData) => {
   return {
     headerTitle: selectedMeal.title,
     headerRight: (
-        // the HeaderButtons component expects a props that points to the components that we use to render the item in the end
+        // the HeaderButtons component expects a prop that points to the components that we use to render the item in the end
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         
         <Item title="Favorite" iconName="ios-star" onPress={() => {
