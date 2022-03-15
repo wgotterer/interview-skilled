@@ -6,6 +6,7 @@ import prudctsReducer from "./store/reducers/products";
 import ShopNavigation from "./navigation/ShopNavigation";
 import cartReducer from "./store/reducers/cart"
 import { AppLoading } from "expo-app-loading";
+import ordersReducer from "./store/reducers/orders"
 import {
   useFonts,
   OpenSans_300Light,
@@ -24,7 +25,8 @@ import * as Font from "expo-font";
 
 const rootReducer = combineReducers({
   products: prudctsReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  orders: ordersReducer
 });
 
 const store = createStore(rootReducer);
