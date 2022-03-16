@@ -9,14 +9,6 @@ import OrderItem from "../../components/shop/OrderItem";
 const OrdersScreen = (props) => {
   const orders = useSelector((state) => state.orders.orders);
   
-  const options = {
-    year: 'numeric',
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  }
-
   return (
     
     <FlatList
@@ -26,7 +18,7 @@ const OrdersScreen = (props) => {
         <OrderItem
           amount={itemData.item.totalAmount}
           // readAble date is date configured in order model with getter function
-          date={itemData.item.date.toLocaleDateString("en-US", options)}
+          date={itemData.item.readableDate}
           
         />
       )}

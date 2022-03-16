@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   date: {
     fontFamily: 'OpenSans_400Regular',
     fontSize: 16,
-    color: "red"
+    color: Colors.primary
   }
 });
 
