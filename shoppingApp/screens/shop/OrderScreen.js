@@ -4,30 +4,51 @@ import Colors from "../../constants/Colors";
 import { useSelector, useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../../components/UI/HeaderButton";
+import OrderItem from "../../components/shop/OrderItem";
 
-const OrdersScreen = props => {
-const orders = useSelector(state => state.orders.orders)
+const OrdersScreen = (props) => {
+  const orders = useSelector((state) => state.orders.orders);
+  
+  const options = {
+    year: 'numeric',
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }
 
-return(
-    <FlatList data={orders} keyExtractor={item => item.id} renderItem={itemData => <Text>{itemData.item.totalAmount}</Text>} />
-)
-}
+  return (
+    
+    <FlatList
+      data={orders}
+      keyExtractor={(item) => item.id}
+      renderItem={(itemData) => (
+        <OrderItem
+          amount={itemData.item.totalAmount}
+          // readAble date is date configured in order model with getter function
+          date={itemData.item.date.toLocaleDateString("en-US", options)}
+          
+        />
+      )}
+    />
+  );
+};
 
-OrdersScreen.navigationOptions = navData => {
-    return {
-        headerLeft: () => ( <HeaderButtons HeaderButtonComponent={HeaderButton}>
-            <Item
-              title="Menu"
-              iconName={Platform.OS === "android" ? "md-menu" : "ios-menu"}
-              onPress={() => {
-                navData.navigation.toggleDrawer()
-              }}
-            />
-          </HeaderButtons>
-          ),  
-          headerTitle: "Your Orders"
-    }
-   
-}
+OrdersScreen.navigationOptions = (navData) => {
+  return {
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Menu"
+          iconName={Platform.OS === "android" ? "md-menu" : "ios-menu"}
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    ),
+    headerTitle: "Your Orders",
+  };
+};
 
-export default OrdersScreen
+export default OrdersScreen;
