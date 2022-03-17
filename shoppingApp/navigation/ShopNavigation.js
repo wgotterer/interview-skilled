@@ -10,6 +10,7 @@ import Colors from "../constants/Colors";
 import { Platform } from "react-native";
 import OrdersScreen from "../screens/shop/OrderScreen";
 import UserProductsScreen from "../screens/user/UserProductScreen";
+import EditProductScreen from "../screens/user/EditProductScreen";
 
 
 const defaultNavOptions = {
@@ -72,6 +73,7 @@ const OrdersNavigator = createStackNavigator(
 const AdminNavigator = createStackNavigator(
   {
     UserProducts: UserProductsScreen,
+    EditProduct: EditProductScreen
   },
   {
     navigationOptions: {
