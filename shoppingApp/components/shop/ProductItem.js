@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   detail: {
     //   centers horizontally becuase flex direction is column by default
     alignItems: "center",
-    height: "15%",
+    height: "17%",
     padding: 6,
   },
   title: {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    height: "25%",
+    height: "23%",
     paddingHorizontal: 20,
   },
 });
