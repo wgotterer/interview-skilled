@@ -50,6 +50,8 @@ const CartScreen = (props) => {
           <CartItem
             quantity={itemData.item.quantity}
             amount={itemData.item.sum}
+            // passing deletable as a props not set to a value is interpreted as true.
+            deletable
             title={itemData.item.productTitle}
             onRemove={() => {
               dispatch(cartActions.removeFromCart(itemData.item.productId));

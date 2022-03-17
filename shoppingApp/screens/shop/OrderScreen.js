@@ -19,6 +19,7 @@ const OrdersScreen = (props) => {
           amount={itemData.item.totalAmount}
           // readAble date is date configured in order model with getter function
           date={itemData.item.readableDate}
+          items={itemData.item.items}
           
         />
       )}

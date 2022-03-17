@@ -22,7 +22,7 @@ const ProductItem = (props) => {
     <View style={styles.product}>
       <View style={styles.touchable}>
         {/*  useForGround allows the whole components */}
-        <TouchableCmp onPress={props.onViewDetail} useForeground>
+        <TouchableCmp onPress={props.onSelect} useForeground>
           <View>
             {/* added imageContainer view becuase before the image overlapped and got rid of the rounded product border*/}
             <View style={styles.imageContainer}>
@@ -37,16 +37,7 @@ const ProductItem = (props) => {
 
             {/* Wrap the buttons in a view so that I can put buttons side by side using flex firection row */}
             <View style={styles.actions}>
-              <Button
-                color={Colors.primary}
-                title="View Details"
-                onPress={props.onViewDetail}
-              />
-              <Button
-                color={Colors.primary}
-                title="To Cart"
-                onPress={props.onAddToCart}
-              />
+              {props.children}
             </View>
           </View>
         </TouchableCmp>
