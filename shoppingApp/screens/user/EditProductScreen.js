@@ -8,6 +8,7 @@ import {
   Button,
   TextInput,
   ScrollView,
+  Alert
 } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../../components/UI/HeaderButton";
@@ -33,6 +34,8 @@ const EditProductScreen = (props) => {
 
   const dispatch = useDispatch();
 
+ 
+
   // useCallack makes sure this function is not re-created every re-render.. avoids infinite loop
   const submitHandler = useCallback(() => {
     if (editedProduct) {
@@ -44,6 +47,7 @@ const EditProductScreen = (props) => {
         productActions.createProduct(title, description, imageUrl, +price)
       );
     }
+    props.navigation.goBack()
   }, [dispatch, prodId, title, description, imageUrl, price]);
 
   //   use the useCallback function as a dependency so useEffect is only rendered once.
