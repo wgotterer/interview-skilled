@@ -33,15 +33,32 @@ export default (state = intialState, action) => {
         const productIndex = state.userProducts.findIndex(
             prod => prod.id === action.pid
         )
-        const updateProduct = new Product (
+        const updatedProduct = new Product (
             action.pid,
             state.userProducts[productIndex].ownerId,
-            action.productData.title,
             action.productData.title,
             action.productData.imageUrl,
             action.productData.description,
             state.userProducts[productIndex].price
         )
+        const updatedUserProducts = [...state.userProducts]
+        // replacing the user product at an index with the updated product in a copy. not the original
+        updatedUserProducts[productIndex] = updatedProduct
+
+        // below updates the available products when on the productOverviewScreen
+        const availableProductIndex = state.availableProducts.findIndex(prod => prod.id === action.pid)
+
+        const updateAvailableProducts = [...state.availableProducts]
+
+        updateAvailableProducts[availableProductIndex] = updatedProduct 
+
+        return {
+            ...state,
+            availableProducts: updateAvailableProducts,
+            userProducts: updatedUserProducts
+        }
+
+
     case DELETE_PRODUCT:
       return {
         ...state,

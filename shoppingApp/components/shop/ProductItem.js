@@ -18,6 +18,9 @@ const ProductItem = (props) => {
     TouchableCmp = TouchableNativeFeedback;
   }
 
+  let price = +props.price
+  price = price.toFixed(2)
+
   return (
     <View style={styles.product}>
       <View style={styles.touchable}>
@@ -32,7 +35,7 @@ const ProductItem = (props) => {
             <View style={styles.detail}>
               <Text style={styles.title}>{props.title}</Text>
               {/* toFixed js function that converts what is being called on a number that only allows 2 decimals */}
-              <Text style={styles.price}>${props.price.toFixed(2)}</Text>
+              <Text style={styles.price}>${price}</Text>
             </View>
 
             {/* Wrap the buttons in a view so that I can put buttons side by side using flex firection row */}

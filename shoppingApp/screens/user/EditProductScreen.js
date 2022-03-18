@@ -14,6 +14,7 @@ import HeaderButton from "../../components/UI/HeaderButton";
 import Colors from "../../constants/Colors";
 import ProductItem from "../../components/shop/ProductItem";
 import { useSelector, useDispatch } from "react-redux";
+import * as productActions from "../../store/actions/products";
 
 const EditProductScreen = (props) => {
   const prodId = props.navigation.getParam("productId");
@@ -30,15 +31,25 @@ const EditProductScreen = (props) => {
     editedProduct ? editedProduct.description : ""
   );
 
-// useCallack makes sure this function is not re-created every re-render.. avoids infinite loop
-  const submitHandler = useCallback(()=> {
-      console.log("penis")
-  }, [])
+  const dispatch = useDispatch();
 
-//   use the useCallback function as a dependency so useEffect is only rendered once. 
+  // useCallack makes sure this function is not re-created every re-render.. avoids infinite loop
+  const submitHandler = useCallback(() => {
+    if (editedProduct) {
+      dispatch(
+        productActions.updateProduct(prodId, title, description, imageUrl)
+      );
+    } else {
+      dispatch(
+        productActions.createProduct(title, description, imageUrl, +price)
+      );
+    }
+  }, [dispatch, prodId, title, description, imageUrl, price]);
+
+  //   use the useCallback function as a dependency so useEffect is only rendered once.
   useEffect(() => {
-     props.navigation.setParams({submit: submitHandler})
-  }, [submitHandler])
+    props.navigation.setParams({ submit: submitHandler });
+  }, [submitHandler]);
 
   return (
     <ScrollView>
@@ -83,7 +94,7 @@ const EditProductScreen = (props) => {
 };
 
 EditProductScreen.navigationOptions = (navData) => {
-    const submitFn = navData.navigation.getParam("submit")
+  const submitFn = navData.navigation.getParam("submit");
   return {
     headerTitle: navData.navigation.getParam("productId")
       ? "Edit Product"
